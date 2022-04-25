@@ -1,0 +1,172 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+/* general reset */
+* , *::after , *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 16px;
+}
+body{
+    
+    font-family: 'Poppins', sans-serif;
+    background-color: $red;
+    background-image: url('../images/bg-intro-desktop.png');
+    background-repeat: no-repeat;
+    background-size : cover;
+    color : white ; 
+}
+
+a{
+    text-decoration: none;
+}
+
+main{
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    @include mobile-down{
+        padding: 3rem 0;
+    }
+}
+
+.container{
+    max-width: 69.375rem;
+    @include mobile-down{
+        width: 85%;
+    }
+}
+
+.intro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include mobile-down{
+        flex-direction: column;
+        width: 100%;
+    }
+    .intro-description  {
+        width: #{$intro-description-width};
+        padding-right: 4.125rem;
+        @include mobile-down{
+            width: 100%;
+            text-align: center;
+            padding: 0;
+            margin-bottom: 3rem;
+        }
+        .heading{
+            max-width: 25.625rem;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            @include mobile-down{
+                margin: 0 auto 2rem auto ;
+            }
+        }
+    }
+    .intro-form{
+        width: calc(100% - #{$intro-description-width});
+        @include mobile-down{
+            width: 100%;
+        }
+        .header{
+            border-radius : 12px;
+            background-color: $blue;
+            font-size : .8rem;
+            padding: 1rem;
+            text-align : center;
+            box-shadow: hsl(0deg 0% 0% / 21%) 0 5px 0 0;
+            margin-bottom: 1.5rem;
+            .bold{
+                font-weight: bold;
+            }
+            .header-text{
+                @include mobile-down{
+                    max-width: 10rem;
+                    margin: 0 auto;
+                }
+            }
+        }
+        form{
+             border-radius: 12px;
+             background-color: white ;
+             padding:  2.5rem ;
+             box-shadow: hsl(0deg 0% 0% / 21%) 0 5px 0 0;
+            @include mobile-down{
+                padding: 1.5rem;
+            }
+            .input{
+                padding-bottom: 1rem;
+                 input[type=text] , input[type=email] , input[type=password]{
+                     padding : .75rem 2rem .75rem 1.5rem;
+                     width: 100%;
+                     border-radius : 6px;
+                     border: 1px solid hsla(0, 0%, 87%, 1);
+                     color : $blue;
+                     caret-color: $blue;
+                    font-weight: 600;
+                    position: relative;
+                    +.error-msg{
+                        display: none;
+                        color : $red;
+                        font-size: .75rem;
+                        font-style: italic;
+                        text-align: right;
+                        margin-top: .25rem;
+                    }
+                    
+                }
+  
+            }
+            &.was-validated .input input:not([type=submit]):invalid{
+                border: 1px solid $red;
+                background-image: url('../images/icon-error.svg');
+                background-repeat: no-repeat;
+                background-size: 1rem 1rem ;
+                background-position: calc(100% - .5rem) center ;
+                    +.error-msg{
+                        display: block;
+                        color : $red;
+                        font-size: .75rem;
+                        font-style: italic;
+                        text-align: right;
+                        margin-top: .25rem;
+                    }
+                }
+
+             input[type=submit]{
+                 display: block;
+                 width: 100%;
+                 color : white ; 
+                 text-transform : uppercase ;
+                 text-align: center;
+                 padding: .8rem;
+                 background-color: $green;
+                 border : none;
+                 outline : none;
+                 border-radius : 6px; 
+                 box-shadow: hsla(153, 49%, 47%, 1) 0 4px 0 0;
+                 font-weight: 400;
+                 letter-spacing: 1px;
+                 margin-bottom: 1.5rem;
+                 cursor: pointer;
+                 transition: .3s;
+                 &:hover{
+                     background-color: hsla(154, 65%, 68%, 1);
+                     box-shadow: hsla(153, 49%, 47%, .75) 0 4px 0 0;
+                 }
+             }
+             .terms-of-use{
+                 color : $grayish-blue;
+                 font-size: .75rem;
+                 text-align: center;
+                 .bold{
+                     color : $red;
+                     font-weight: 700;
+                 }
+             }
+        }
+    }
+}

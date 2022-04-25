@@ -1,0 +1,197 @@
+/* general reset */
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #ff7a7a;
+  background-image: url("../images/bg-intro-desktop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  min-height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+@media screen and (max-width: 768px) {
+  main {
+    padding: 3rem 0;
+  }
+}
+
+.container {
+  max-width: 69.375rem;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    width: 85%;
+  }
+}
+
+.intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .intro {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+}
+.intro .intro-description {
+  width: 52%;
+  padding-right: 4.125rem;
+}
+@media screen and (max-width: 768px) {
+  .intro .intro-description {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 3rem;
+  }
+}
+.intro .intro-description .heading {
+  max-width: 25.625rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .intro .intro-description .heading {
+    margin: 0 auto 2rem auto;
+  }
+}
+.intro .intro-form {
+  width: calc(100% - 52%);
+}
+@media screen and (max-width: 768px) {
+  .intro .intro-form {
+    width: 100%;
+  }
+}
+.intro .intro-form .header {
+  border-radius: 12px;
+  background-color: #6055a5;
+  font-size: 0.8rem;
+  padding: 1rem;
+  text-align: center;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.21) 0 5px 0 0;
+          box-shadow: rgba(0, 0, 0, 0.21) 0 5px 0 0;
+  margin-bottom: 1.5rem;
+}
+.intro .intro-form .header .bold {
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .intro .intro-form .header .header-text {
+    max-width: 10rem;
+    margin: 0 auto;
+  }
+}
+.intro .intro-form form {
+  border-radius: 12px;
+  background-color: white;
+  padding: 2.5rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.21) 0 5px 0 0;
+          box-shadow: rgba(0, 0, 0, 0.21) 0 5px 0 0;
+}
+@media screen and (max-width: 768px) {
+  .intro .intro-form form {
+    padding: 1.5rem;
+  }
+}
+.intro .intro-form form .input {
+  padding-bottom: 1rem;
+}
+.intro .intro-form form .input input[type=text], .intro .intro-form form .input input[type=email], .intro .intro-form form .input input[type=password] {
+  padding: 0.75rem 2rem 0.75rem 1.5rem;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #dedede;
+  color: #6055a5;
+  caret-color: #6055a5;
+  font-weight: 600;
+  position: relative;
+}
+.intro .intro-form form .input input[type=text] + .error-msg, .intro .intro-form form .input input[type=email] + .error-msg, .intro .intro-form form .input input[type=password] + .error-msg {
+  display: none;
+  color: #ff7a7a;
+  font-size: 0.75rem;
+  font-style: italic;
+  text-align: right;
+  margin-top: 0.25rem;
+}
+.intro .intro-form form.was-validated .input input:not([type=submit]):invalid {
+  border: 1px solid #ff7a7a;
+  background-image: url("../images/icon-error.svg");
+  background-repeat: no-repeat;
+  background-size: 1rem 1rem;
+  background-position: calc(100% - .5rem) center;
+}
+.intro .intro-form form.was-validated .input input:not([type=submit]):invalid + .error-msg {
+  display: block;
+  color: #ff7a7a;
+  font-size: 0.75rem;
+  font-style: italic;
+  text-align: right;
+  margin-top: 0.25rem;
+}
+.intro .intro-form form input[type=submit] {
+  display: block;
+  width: 100%;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.8rem;
+  background-color: #38cc8c;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  -webkit-box-shadow: #3db37e 0 4px 0 0;
+          box-shadow: #3db37e 0 4px 0 0;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.intro .intro-form form input[type=submit]:hover {
+  background-color: #78e2b4;
+  -webkit-box-shadow: rgba(61, 179, 126, 0.75) 0 4px 0 0;
+          box-shadow: rgba(61, 179, 126, 0.75) 0 4px 0 0;
+}
+.intro .intro-form form .terms-of-use {
+  color: #b9b6d3;
+  font-size: 0.75rem;
+  text-align: center;
+}
+.intro .intro-form form .terms-of-use .bold {
+  color: #ff7a7a;
+  font-weight: 700;
+}
